@@ -19,6 +19,7 @@ public class DynamicCalculatorTest {
     Path diffNumbersCsvFile = Paths.get("src", "test", "resources", "diffNumbers.csv");
     Path mulNumbersCsvFile = Paths.get("src", "test", "resources", "mulNumbers.csv");
     Path divNumbersCsvFile = Paths.get("src", "test", "resources", "divNumbers.csv");
+    Path sumMod2NumbersCsvFile = Paths.get("src", "test", "resources", "sumMod2Numbers.csv");
 
     @TestFactory
     Stream<DynamicTest> testAddFactory() throws IOException {
@@ -38,5 +39,10 @@ public class DynamicCalculatorTest {
     @TestFactory
     Stream<DynamicTest> testDivFactory() throws IOException {
         return generateTests(divNumbersCsvFile, "%s divided by %s must be equal to %s", calculator::div);
+    }
+
+    @TestFactory
+    Stream<DynamicTest> testSumMod2Factory() throws IOException {
+        return generateTests(sumMod2NumbersCsvFile, "%s mod by %s must be equal to %s", calculator::sumMod2);
     }
 }

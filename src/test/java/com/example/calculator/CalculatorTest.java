@@ -72,4 +72,15 @@ public class CalculatorTest {
 
         }
     }
+
+    @ParameterizedTest(name = "{0} XOR {1} = {2}")
+    @CsvSource({
+            "15,    3,  12",
+            "22,    10,  28"
+    })
+    void sumMod2(int first, int second, int expectedResult) {
+        Calculator calculator = new Calculator();
+        assertEquals(expectedResult, calculator.sumMod2(first, second),
+                () -> first + " XOR " + second + " should equal " + expectedResult);
+    }
 }

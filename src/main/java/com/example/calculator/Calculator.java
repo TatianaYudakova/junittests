@@ -20,4 +20,8 @@ public class Calculator {
 
         return a / b;
     }
+
+    public int sumMod2(int a, int b) {
+        return a ^ b;
+    }
 }
